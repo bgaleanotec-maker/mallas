@@ -2,6 +2,10 @@ services:
   - type: web
     name: mallas
     env: node
-    buildCommand: npm install
+    nodeVersion: "20"
+    buildCommand: npm install --include=dev && npm run build
     startCommand: npm start
-    plan: free
+    plan: starter
+    envVars:
+      - key: NODE_ENV
+        value: production
